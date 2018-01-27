@@ -1,0 +1,36 @@
+@import '../../../styles/variables/dimensions';
+@import '../../../styles/variables/colors';
+
+.main-scene {
+  position: relative;
+
+  .login-link {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    text-decoration: underline;
+    font-size: 14px;
+    color: $clr-main;
+    cursor: pointer;
+  }
+  .pager-container {
+    padding-top: 20px;
+  }
+
+  .add-button-container {
+    padding: 20px 0 40px 0;
+    float: left;
+  }
+
+  .sort-container {
+    float: right;
+    padding: 20px 0 40px 0;
+    .btn-default {
+      margin-right: 20px;
+    }
+  }
+
+  .task {
+    margin-top: 20px;
+  }
+}

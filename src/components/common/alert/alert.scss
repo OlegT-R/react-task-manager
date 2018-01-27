@@ -1,0 +1,27 @@
+@import '../../../styles/variables/colors';
+
+.alert-portal{
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  transform: translateX(-410px);
+  transition: all .4s ease-in;
+  .alert-container {
+    h4{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 24px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
+
+  &.showed {
+    transform: translateX(10px);
+  }
+}
+

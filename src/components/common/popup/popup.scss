@@ -1,0 +1,67 @@
+@import '../../../styles/variables/colors';
+
+.popup {
+  z-index: 2000;
+  position: relative;
+  left: 0;
+  top: 0;
+
+  .overlay {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background: $clr-overlay;
+    top: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .modal {
+    z-index: 999;
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    //left: 3%;
+    //right: 3%;
+    top: 3%;
+    bottom: 3%;
+    text-align: center;
+    margin: 2px;
+  }
+  .popup-inner {
+    overflow-y: auto;
+    position: relative;
+    height: auto;
+    max-height: 100%;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    padding: 25px 20px;
+
+    border-radius: 5px;
+    border: 1px solid $clr-separator;
+    background: $clr-primary;
+    max-width: 960px;
+  }
+
+  .popup-header {
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .popup-title {
+    margin-right: 20px;
+  }
+
+  .popup-close-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: $text-dark;
+    cursor: pointer;
+  }
+
+}

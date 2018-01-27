@@ -1,0 +1,55 @@
+@import "../variables/colors";
+
+.app {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  min-height: 100vh;
+}
+
+.app-scene {
+  min-height: 100%;
+  height: auto;
+  background: $clr-primary;
+  border: 1px solid $clr-separator;
+  padding: 3rem 2rem;
+}
+
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.fl-r {
+  display: inline-block;
+  float: right;
+}
+
+.fl-l {
+  display: inline-block;
+  float: left;
+}
+
+.react-spinner {
+  animation: App-logo-spin infinite 4s linear;
+  height: 90px;
+  margin: 0 auto;
+  display: block;
+}
+
+.cut-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

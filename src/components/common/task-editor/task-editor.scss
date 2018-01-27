@@ -1,0 +1,17 @@
+@import '../../../styles/variables/colors';
+
+.task-editor {
+  width: 300px;
+
+  textarea {
+    margin-top: 15px;
+    resize: none;
+    height: 100px;
+    width: 100%;
+  }
+
+  .dropdown-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
