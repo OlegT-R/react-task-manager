@@ -1,17 +1,17 @@
 import React from 'react';
-import './task-scene.scss';
-import imageService from '../../../services/imageService';
-import Popup from '../../common/popup/Popup';
-import apiService from "../../../services/apiService";
-import notifyService from "../../../services/notifyService";
-import Task from '../../common/task/task';
-import {urls} from '../../../utils/miscUtils';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Button from 'react-bootstrap/lib/Button';
+import imageService from '../../../services/imageService';
+import Popup from '../../common/popup/Popup';
+import apiService from "../../../services/apiService";
+import notifyService from "../../../services/notifyService";
+import Task from '../../common/task/task';
+import {urls} from '../../../utils/miscUtils';
+import './task-scene.scss';
 
 const imageSize = {
     width: 320,

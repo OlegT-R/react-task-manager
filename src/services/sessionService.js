@@ -12,7 +12,7 @@ const sessionService = function () {
     }
 
     function isAdmin() {
-        return cookies.getCookie(cookieKey);
+        return !!cookies.getCookie(cookieKey);
     }
 
     return {login, logout, isAdmin}

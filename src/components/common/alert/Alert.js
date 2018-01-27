@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './alert.scss';
 import Alert from 'react-bootstrap/lib/Alert';
+import './alert.scss';
+
 
 const alertTypes = {
     success: 'success',

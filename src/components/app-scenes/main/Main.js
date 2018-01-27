@@ -1,19 +1,20 @@
 import React from 'react';
-import './main-scene.scss';
+import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
+import DropdownButton from 'react-bootstrap/lib/DropdownButton';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+import Row from 'react-bootstrap/lib/Row';
 import Pagination from '../../common/pagination/pagination';
 import Task from '../../common/task/task';
 import Popup from '../../common/popup/Popup';
 import TaskEditor from '../../common/task-editor/taskEditor';
 import apiService from '../../../services/apiService';
 import sessionService from '../../../services/sessionService';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
-import DropdownButton from 'react-bootstrap/lib/DropdownButton';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import spinner from '../../../assets/logo.svg';
 import {getTotalPagesCount, objectToArray, urls} from '../../../utils/miscUtils';
 import notifyService from "../../../services/notifyService";
+import './main-scene.scss';
+import spinner from '../../../assets/logo.svg';
+
 
 const sortFields = {
     username: 'username',
@@ -61,8 +62,8 @@ export default class Main extends React.Component {
     }
 
     onChange = async (type, data) => {
-        const {sort, sortDirection, page} = this.state;
         this.state[type] = data;
+        const {sort, sortDirection, page} = this.state;
         this.setState({tasks: null});
         const {tasks, total_task_count} = await loadTasks(page, sort, sortDirection);
         this.setState({tasks, totalTaskCount: total_task_count});
@@ -113,7 +114,7 @@ export default class Main extends React.Component {
                 <div className="login-link"
                      onClick={() => this.onLoginLink()}>{sessionService.isAdmin() ? 'Logout' : 'Login'}</div>
                 <div className="add-button-container">
-                    <Button bsStyle="primary" onClick={() => this.setState({show: true})}>Add task</Button>
+                    <Button bsStyle="primary" onClick={() => window.location.href = urls.addingTask}>Add task</Button>
                 </div>
                 <div className="sort-container">
                     <DropdownButton

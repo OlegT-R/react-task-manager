@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
-import '../../styles/base-styles.scss';
 import router from '../../services/router';
-
+import '../../styles/base-styles.scss';
 
 class App extends Component {
 

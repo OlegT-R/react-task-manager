@@ -8,7 +8,7 @@ const pagination = ({pageCount, currPage, onChangePage}) => {
     const items = [];
     for (let number = 1; number <= pageCount; number++) {
         items.push(
-            <Pagination.Item active={number === currPage} onClick={() => onChangePage(number)}>{number}</Pagination.Item>
+            <Pagination.Item active={number === currPage} key={number} onClick={() => onChangePage(number)}>{number}</Pagination.Item>
         );
     }
 
