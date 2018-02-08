@@ -2,7 +2,7 @@ import React from 'react';
 import './login.scss';
 import sessionService from '../../../services/sessionService';
 import notifyService from "../../../services/notifyService";
-import {urls} from '../../../utils/miscUtils';
+import {urls, history} from '../../../utils/miscUtils';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
@@ -24,7 +24,7 @@ export default class Login extends React.Component {
             hasError: false,
         };
         if (sessionService.isAdmin()) {
-            window.location.href = urls.main;
+            history.push(urls.main.path);
         }
     }
 
@@ -45,8 +45,7 @@ export default class Login extends React.Component {
         if (password === credentials.password && username === credentials.username) {
             sessionService.login();
             notifyService.showSuccess('Hi admin', 'You successfully entered as admin', 4000);
-            setTimeout(() => window.location.href = urls.main, 3000);
-            this.setState({hasError: false});
+            history.push(urls.main.path);
         } else {
             this.setState({hasError: true, username: '', password: ''});
         }

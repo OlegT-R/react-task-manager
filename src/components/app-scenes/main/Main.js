@@ -10,8 +10,9 @@ import Popup from '../../common/popup/Popup';
 import TaskEditor from '../../common/task-editor/taskEditor';
 import apiService from '../../../services/apiService';
 import sessionService from '../../../services/sessionService';
-import {getTotalPagesCount, objectToArray, urls} from '../../../utils/miscUtils';
+import {getTotalPagesCount, objectToArray, urls, history} from '../../../utils/miscUtils';
 import notifyService from "../../../services/notifyService";
+
 import './main-scene.scss';
 import spinner from '../../../assets/logo.svg';
 
@@ -74,7 +75,7 @@ export default class Main extends React.Component {
             sessionService.logout();
             this.forceUpdate();
         } else {
-            window.location.href = urls.login;
+            history.push(urls.login.path);
         }
     };
 
@@ -114,7 +115,7 @@ export default class Main extends React.Component {
                 <div className="login-link"
                      onClick={() => this.onLoginLink()}>{sessionService.isAdmin() ? 'Logout' : 'Login'}</div>
                 <div className="add-button-container">
-                    <Button bsStyle="primary" onClick={() => window.location.href = urls.addingTask}>Add task</Button>
+                    <Button bsStyle="primary" onClick={() => history.push(urls.addingTask.path)}>Add task</Button>
                 </div>
                 <div className="sort-container">
                     <DropdownButton

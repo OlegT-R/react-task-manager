@@ -1,3 +1,7 @@
+import createHistory from 'history/createBrowserHistory';
+
+const history = createHistory();
+
 function setCookie(name, value) {
     document.cookie = name + "=" + value;
 }
@@ -29,14 +33,24 @@ function objectToArray(obj) {
 const cookies = {setCookie, getCookie, deleteCookie};
 
 const urls = {
-  main: '/',
-  login: '/login',
-  addingTask: '/task'
+  main: {
+      title: 'Main page',
+      path: '/'
+  },
+  login: {
+      title: 'Login page',
+      path: '/login',
+  },
+  addingTask: {
+      title: 'Task page',
+      path: '/task',
+  }
 };
 
 export {
     cookies,
     urls,
     getTotalPagesCount,
-    objectToArray
+    objectToArray,
+    history,
 }

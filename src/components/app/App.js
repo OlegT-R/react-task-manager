@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
-import router from '../../services/router';
+import Router from '../../services/router';
 import '../../styles/base-styles.scss';
 
 class App extends Component {
 
     constructor(props) {
         super(props);
+        const router = Router(this);
+
         this.state = {
             Component: router.getCurrentScene(),
         }

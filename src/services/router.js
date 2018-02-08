@@ -1,6 +1,7 @@
+import {history} from '../utils/miscUtils';
 import Login from '../components/app-scenes/login/Login';
 import Main from '../components/app-scenes/main/Main';
-import Task from '../components/app-scenes/task-scene/TaskScene';
+import Task from '../components/app-scenes/adding-task/AddingTask';
 import NotFound from '../components/app-scenes/not-found/notFound';
 
 const routerPaths = {
@@ -22,11 +23,9 @@ const routerPaths = {
 };
 
 
-const router = function () {
+const router = function (appContext) {
 
-    function getCurrentScene() {
-        const pathname = window.location.pathname;
-
+    function getCurrentScene(pathname = window.location.pathname) {
         for (const key in routerPaths) {
             const route = routerPaths[key];
             if (route.path && route.path === pathname) {
@@ -37,7 +36,14 @@ const router = function () {
         return routerPaths.otherwise.component;
     }
 
+    history.listen((location, action) => {
+        const component = getCurrentScene(location.pathname);
+        console.log('newPath', location.pathname);
+        appContext.setState({Component: component});
+    });
+
+
     return {getCurrentScene}
 };
 
-export default router();
+export default router;

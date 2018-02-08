@@ -10,8 +10,8 @@ import Popup from '../../common/popup/Popup';
 import apiService from "../../../services/apiService";
 import notifyService from "../../../services/notifyService";
 import Task from '../../common/task/task';
-import {urls} from '../../../utils/miscUtils';
-import './task-scene.scss';
+import {urls, history} from '../../../utils/miscUtils';
+import './adding-task.scss';
 
 const imageSize = {
     width: 320,
@@ -20,7 +20,7 @@ const imageSize = {
 
 const requiredFieldsCount = 3;
 
-export default class TaskScene extends React.Component {
+export default class AddingTask extends React.Component {
 
     constructor(props) {
         super(props);
@@ -95,7 +95,7 @@ export default class TaskScene extends React.Component {
         const result = await apiService.createTask(data);
         if (result) {
             notifyService.showSuccess('Success', 'Your task was successfully added', 4000);
-            setTimeout(() => window.location.href = urls.main, 3000);
+            history.push(urls.main.path);
         }
     };
 
@@ -134,9 +134,9 @@ export default class TaskScene extends React.Component {
 
         return (
 
-            <div className="task-scene">
+            <div className="adding-task">
                 <div className="back-button-container">
-                    <Button bsStyle="primary" onClick={() => window.location.href = urls.main}>Back</Button>
+                    <Button bsStyle="primary" onClick={() => history.push(urls.main.path)}>Back</Button>
                 </div>
                 <form ref={(form) => this.form = form}>
                     <Row>
