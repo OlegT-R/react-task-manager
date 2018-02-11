@@ -69,19 +69,21 @@ export default class AddingTask extends React.Component {
     };
 
     handleChange = (e, type) => {
-        this.state[type] = e.target.value;
-        this.forceUpdate();
+        this.setState({[type]: e.target.value});
     };
 
     onFileChange = async (e) => {
         const file = e.target.files[0];
         const {blob: image, dataURL} = await imageService.resize(file, imageSize.width, imageSize.height);
-        this.state.file = {
+        const newFile = {
             data: image,
             fileType: file.type,
         };
-        this.state.dataURL = dataURL;
-        this.forceUpdate();
+        this.setState({
+            file: newFile,
+            dataURL: dataURL,
+        });
+
     };
 
     onSave = async () => {
